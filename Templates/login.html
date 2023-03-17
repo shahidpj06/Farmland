@@ -1,0 +1,104 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title> Login || Agrion || Agrion HTML 5 Template </title>
+    <!-- favicons Icons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'assets/images/favicons/apple-touch-icon.png' %}" />
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'assets/images/favicons/favicon-32x32.png' %}" />
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'assets/images/favicons/favicon-16x16.png' %}" />
+    <link rel="manifest" href="{% static 'assets/images/favicons/site.webmanifest' %}" />
+    <meta name="description" content="Agrion HTML 5 Template " />
+
+    <link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/animate/animate.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/css-hamburgers/hamburgers.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/select2/select2.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'css/util.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+
+    <!-- template styles -->
+    <link rel="stylesheet" href="{% static 'assets/css/agrion.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/css/agrion-responsive.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/css/agrion-dark.css' %}" />
+
+</head>
+
+<body class="tdStyle"  background="{% static 'black.png' %}">
+<center>
+<form method="post" action="{% url 'login' %}" enctype="multipart/form-data">
+    {% csrf_token %}
+	<div class="container-login100">
+			<div style="color:white;" align="center">
+				{% if messages %}
+					{% for msg in messages %}
+					{{ msg }}
+					{% endfor %}
+				{% endif %}
+			</div>
+    <div class="limiter">
+
+
+			<div class="wrap-login100">
+				<div class="login100-pic js-tilt" data-tilt>
+					<img src="{% static 'assets/images/resources/logo-1.png' %}" alt="IMG">
+				</div>
+					<span class="login100-form-title">
+						 Login
+					</span>
+
+					<div class="wrap-input100 validate-input" data-validate = "Valid username is required: ex@abc.xyz">
+						<input class="input100" type="text" name="username" placeholder="username">
+						<span class="focus-input100"></span>
+						</span>
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate = "Password is required">
+						<input class="input100" type="password" name="password" placeholder="Password">
+						<span class="focus-input100"></span>
+
+						</span>
+					</div>
+
+					<div class="container-login100-form-btn">
+						<button class="login100-form-btn">
+							Login
+						</button><br><br><br><br>
+						<a href="{% url 'home' %}" style="align:center;" class="thm-btn main-slider__btn">Back</button></a>
+					</div>
+				<br>
+			</div>
+		</div>
+
+	</div>
+
+</form>
+</center>
+<script src="{% static 'vendor/jquery/jquery-3.2.1.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'vendor/bootstrap/js/popper.js' %}"></script>
+	<script src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'vendor/select2/select2.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'vendor/tilt/tilt.jquery.min.js' %}"></script>
+	<script >
+		$('.js-tilt').tilt({
+			scale: 1.1
+		})
+	</script>
+<!--===============================================================================================-->
+	<script src="{% static 'js/main.js' %}"></script>
+
+</body>
+</html>
+

@@ -1,0 +1,152 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title> Admin Reg || Agrion || Agrion HTML 5 Template </title>
+    <!-- favicons Icons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'assets/images/favicons/apple-touch-icon.png' %}" />
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'assets/images/favicons/favicon-32x32.png' %}" />
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'assets/images/favicons/favicon-16x16.png' %}" />
+    <link rel="manifest" href="{% static 'assets/images/favicons/site.webmanifest' %}" />
+    <meta name="description" content="Agrion HTML 5 Template " />
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'assets/vendors/bootstrap/css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/vendors/animate/animate.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/vendors/animate/custom-animate.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/vendors/fontawesome/css/all.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/vendors/jarallax/jarallax.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/vendors/jquery-magnific-popup/jquery.magnific-popup.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/vendors/nouislider/nouislider.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/vendors/nouislider/nouislider.pips.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/vendors/odometer/odometer.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/vendors/swiper/swiper.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/vendors/agrion-icons/style.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/vendors/tiny-slider/tiny-slider.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/vendors/reey-font/stylesheet.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/vendors/owl-carousel/owl.carousel.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/vendors/owl-carousel/owl.theme.default.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/vendors/bxslider/jquery.bxslider.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/vendors/bootstrap-select/css/bootstrap-select.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/vendors/vegas/vegas.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/vendors/jquery-ui/jquery-ui.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/vendors/timepicker/timePicker.css' %}" />
+
+    <!-- template styles -->
+    <link rel="stylesheet" href="{% static 'assets/css/agrion.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/css/agrion-responsive.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/css/agrion-dark.css' %}" />
+</head>
+
+<body class="custom-cursor">
+
+    <div class="custom-cursor__cursor"></div>
+    <div class="custom-cursor__cursor-two"></div>
+
+
+
+    <style>
+.tdStyle
+{
+background-repeat:no-repeat;
+background-size:cover;
+}
+label
+{ float: center; width: 10em; margin-right: 1em; }
+</style>
+    <meta charset="UTF-8">
+    <div class="container">
+                <div class="row">
+                    <div class="col-xl-6">
+                     <title>Schedule work</title>
+
+                </div>
+    <!--<link rel="stylesheet" type="text/css" href={% static 'trt.css' %}>-->
+</head>
+<!--style="background-repeat: no-repeat; background-size: 1300px 700px"-->
+<body class="tdStyle"  background="{% static 'mn.jpg' %}">
+<form method="post" action="{% url 'schedule_work' %}" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="container" align="center">
+        <h1 class="section-title__title">Schedule work</h1>
+        <div class="section-title__icon">
+                                    <img src="{% static 'assets/images/icon/section-title-icon-1.png' %}" alt="">
+                                </div>
+            <p>Please fill in this form.</p>
+            <div style="color:blue;" align="center">
+            {% if messages %}
+                {% for msg in messages %}
+                        {{ msg }}
+                {% endfor %}
+            {% endif %}
+            </div>
+                 <div class="contact-one__right">
+                            <div class="contact-one__bg float-bob-x"
+                                style="background-image: url( '{% static 'assets/images/shapes/contact-one-shape-1.png' %}');"></div>
+                            <div class="row">
+                                <div class="contact-one__form-box">
+                                    <form action="{% static 'assets/inc/sendemail.php' %}"
+                                        class="contact-one__form contact-one-validated" novalidate="novalidate">
+                                        <div class="row">
+                                            <div class="col-xl-6 col-lg-6 col-md-6">
+                                                <div class="contact-one__input-box">
+                                                    <textarea placeholder="Work description here..." rows="20" cols="100" name="scd"></textarea>
+                                                      <br><br>
+                                                    <select name="worker">
+                                                         <option value="Nil" selected>Select worker</option>
+                                                             {% for i in fd %}
+                                                         <option value="{{i.id}}">{{i.First_name}} {{i.Last_name}}</option>
+                                                             {% endfor %}
+                                                    </select><br><br>
+
+                                                      <button type="submit" class="thm-btn main-slider__btn">Add</button>
+                                                      <button type="reset"  class="thm-btn main-slider__btn">Cancel</button>
+                                                </div>
+</form>
+<div align="center">
+   <button type="submit" class="thm-btn main-slider__btn" onclick="location.href='{% url 'adminhome' %}'" name='mybtn2'>Back</button>
+</div>
+
+<script src="{% static 'assets/vendors/jquery/jquery-3.6.0.min.js' %}"></script>
+    <script src="{% static 'assets/vendors/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'assets/vendors/jarallax/jarallax.min.js' %}"></script>
+    <script src="{% static 'assets/vendors/jquery-ajaxchimp/jquery.ajaxchimp.min.js' %}"></script>
+    <script src="{% static 'assets/vendors/jquery-appear/jquery.appear.min.js' %}"></script>
+    <script src="{% static 'assets/vendors/jquery-circle-progress/jquery.circle-progress.min.js' %}"></script>
+    <script src="{% static 'assets/vendors/jquery-magnific-popup/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static 'assets/vendors/jquery-validate/jquery.validate.min.js' %}"></script>
+    <script src="{% static 'assets/vendors/nouislider/nouislider.min.js' %}"></script>
+    <script src="{% static 'assets/vendors/odometer/odometer.min.js' %}"></script>
+    <script src="{% static 'assets/vendors/swiper/swiper.min.js' %}"></script>
+    <script src="{% static 'assets/vendors/tiny-slider/tiny-slider.min.js' %}"></script>
+    <script src="{% static 'assets/vendors/wnumb/wNumb.min.js' %}"></script>
+    <script src="{% static 'assets/vendors/wow/wow.js' %}"></script>
+    <script src="{% static 'assets/vendors/isotope/isotope.js' %}"></script>
+    <script src="{% static 'assets/vendors/countdown/countdown.min.js' %}"></script>
+    <script src="{% static 'assets/vendors/owl-carousel/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'assets/vendors/bxslider/jquery.bxslider.min.js' %}"></script>
+    <script src="{% static 'assets/vendors/bootstrap-select/js/bootstrap-select.min.js' %}"></script>
+    <script src="{% static 'assets/vendors/vegas/vegas.min.js' %}"></script>
+    <script src="{% static 'assets/vendors/jquery-ui/jquery-ui.js' %}"></script>
+    <script src="{% static 'assets/vendors/timepicker/timePicker.js' %}"></script>
+    <script src="{% static 'assets/vendors/circleType/jquery.circleType.js' %}"></script>
+    <script src="{% static 'assets/vendors/circleType/jquery.lettering.min.js' %}"></script>
+
+
+
+
+    <!-- template js -->
+    <script src="{% static 'assets/js/agrion.js' %}"></script>
+</body>
+
+</html>
